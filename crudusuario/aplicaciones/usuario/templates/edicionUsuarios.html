@@ -1,0 +1,29 @@
+{% extends "./plantilla.html" %} 
+
+{% block title %} Gestion de Usuarios {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md4 offset-md">
+        <h2>Edicion de usuario</h2>
+       <div class="card">
+        <div class="card-body">
+          <form action="/editarUsuario/{{u.codigo}}" method="POST">{% csrf_token %}
+            <div class="form-group">
+              <input type="text" id="txtCodigo" name="txtCodigo" value="{{usuario.codigo}}" class="form-control" placeholder="Codigo" minlength="6" maxlength="6" readonly required>
+            </div>
+            <div class="form-group">
+              <input type="text" id="txtNombre" name="txtNombre" value="{{usuario.nombre}}" class="form-control" placeholder="Nombre" minlength="2" maxlength="50">
+            </div>
+            <div class="form-group">
+              <input type="text" id="txtApellido" name="txtApellido" value="{{usuario.apellido}}" class="form-control" placeholder="Apellido" minlength="2" maxlength="50">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success btn-block text-white">Guardar</button>
+            </div>
+          </form>
+        </div>
+       </div>
+    </div>
+</div>
+{% endblock %}
